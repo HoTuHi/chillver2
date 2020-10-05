@@ -1,0 +1,190 @@
+body{
+    transform: scale(0.8);
+}
+.container-fluid {
+    background: rgba(51, 117, 117, 0.06);
+
+}
+
+
+.center-layout {
+    height: 100vh;
+    width: 50vw;
+    display: grid;
+    place-items: center;
+}
+
+
+
+.album-img {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    background: url(../img/album.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 10px solid #c7c7c7;
+    box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.39);
+    background-position: 50% 50%;
+
+}
+.control-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.control-panel {
+    width: 30rem;
+    height: 11.5rem;
+    border-radius: 1rem;
+    background: transparent;
+    border: 3px solid #fff;
+    box-shadow: -25px 25px 35px rgba(0, 0, 0, 0.31);
+    /* Note: currently only Safari supports backdrop-filter */
+    backdrop-filter: blur(1.625rem);
+/*    --webkit-backdrop-filter: blur(1.625rem);*/
+    background-color: rgba(255, 255, 255, 1);
+    /* (plus shape's fill blended on top as a separate layer with 100% opacity) */
+
+}
+
+.circle-album {
+    position: absolute;
+    left: -50px;
+    top: 20px;
+}
+
+
+
+.album-name {
+    text-align: left;
+    margin: 0px 0px 0px 40px;
+    padding: 10px;
+    font-family: "Baloo Thambi 2";
+    font-weight: 600;
+    color: #707070;
+
+}
+
+.seek-leght {
+    margin: 0px 0px 0px 50px;
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgb(112,112,112,0.4);
+
+}
+
+#current-time {
+    margin: 0px 0px 0px 50px;
+    font-size: 20px;
+    float: left;
+    
+}
+
+.album-track {
+    width: 400px;
+    float: right;
+    margin-right: 2rem;
+}
+
+.track-length {
+    float: right;
+    font-size: 20px;
+}
+
+.track-time {
+    margin: 10px 0px;
+    color: #008080;
+}
+
+.seek-bar {
+    height: 100%;
+    border-radius: 4px;
+    background-color: #008080;
+}
+.fas{
+    color: dimgray !important;
+    font-size: 30px;
+    margin: 30px 30px;
+}
+.fas:hover{
+    color:teal !important;
+    transform: scale(1.1);
+}
+.control-btn {
+    display: flex;
+}
+
+.list-container {
+    width: 33rem;
+    height: 11.5rem;
+    border-radius: 16px;
+    border: 3px solid #fff;
+    box-shadow: -25px 25px 35px rgba(0, 0, 0, 0.31);
+    background-color: rgba(255, 255, 255, 1);
+    display: grid;
+    place-items: center;
+}
+
+ul {
+    margin: 0px 0px 0px 0px;
+    height: 150px;
+    width: 500px;
+    list-style-type: none;
+}
+ul{
+    overflow:hidden; 
+    overflow-y:scroll;
+}
+
+.list-track {
+    font-family: "Baloo Thambi 2";
+    font-weight: 600;
+    font-size: 20px;
+    color: #707070;
+    margin-right: 18px;
+    padding: 12px 0px 12px 30px;
+}
+.list-track .fas{
+    margin: 0px 40px 0px 0px;
+    font-size: 20px;
+}
+.leng-track{
+    font-family: "Cascadia Code";
+    margin-left: 100px;
+
+}
+ li:hover, .active {
+    background: rgba(0, 133, 133, 0.22);
+    border-right: 7px solid #00808044;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  border-radius: 3.5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dcdcdc46; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00808033;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #008080; 
+}
+.li-album-name {
+    font-family: "Cascadia Code";
+    font-weight: normal;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    text-align: left;
+    color: #707070;
+
+}
