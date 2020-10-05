@@ -1,8 +1,8 @@
 body{
+    background: rgba(51, 117, 117, 0.7) !important;
     transform: scale(0.8);
 }
 .container-fluid {
-    background: rgba(51, 117, 117, 0.06);
 
 }
 
@@ -138,6 +138,7 @@ ul{
 }
 
 .list-track {
+/*    display: inline-block;*/
     font-family: "Baloo Thambi 2";
     font-weight: 600;
     font-size: 20px;
@@ -145,18 +146,31 @@ ul{
     margin-right: 18px;
     padding: 12px 0px 12px 30px;
 }
+.li-album-name {
+/*    width: 100px;*/
+    font-family: "Cascadia Code";
+    font-weight: normal;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    text-align: left;
+    color: #707070;
+
+}
+
 .list-track .fas{
+    
     margin: 0px 40px 0px 0px;
     font-size: 20px;
 }
 .leng-track{
+    float: right;
     font-family: "Cascadia Code";
-    margin-left: 100px;
+    margin-right: 20px;
 
 }
  li:hover, .active {
     background: rgba(0, 133, 133, 0.22);
-    border-right: 7px solid #00808044;
+    border-left: 2px solid #008080;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -178,13 +192,4 @@ ul{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #008080; 
-}
-.li-album-name {
-    font-family: "Cascadia Code";
-    font-weight: normal;
-    font-size: 22px;
-    letter-spacing: 0.08em;
-    text-align: left;
-    color: #707070;
-
 }
