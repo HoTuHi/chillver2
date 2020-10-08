@@ -1,3 +1,12 @@
+<!--
+██╗░░░░░██╗███╗░░██╗██╗░░██╗░█████╗░██╗░░░██╗███████╗
+██║░░░░░██║████╗░██║██║░██╔╝██╔══██╗██║░░░██║██╔════╝
+██║░░░░░██║██╔██╗██║█████═╝░███████║╚██╗░██╔╝█████╗░░
+██║░░░░░██║██║╚████║██╔═██╗░██╔══██║░╚████╔╝░██╔══╝░░
+███████╗██║██║░╚███║██║░╚██╗██║░░██║░░╚██╔╝░░███████╗
+╚══════╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚══════╝
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +20,16 @@
 </head>
 <body>
     <div class="container-fluid">
-       
+
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 center-layout">
                     <div class="control-container">
-                       <div class="circle-album">
+                       <div id="circle-album" >
                             <div class="album-img"></div>
                        </div>
                        <div class="control-panel">
                            <div class="album-track">
-                                <div class="album-name"><h1>hey brother</h1></div>
+                                <div class="album-name"><h1 id="player-track">NaNNaN</h1></div>
 
                                <div class="track-time">
                                    <div id="current-time">
@@ -31,8 +40,9 @@
                                    </div>
                                </div>
                                <div class="seek-leght">
-                                   <div class="ins-time"></div>
-                                   <div class="seek-bar" style="width: 10%"></div>
+                                   <div id="ins-time">--:--</div>
+                                   <div class="seek-bar" style="width: 0%"></div>
+<!--                                   <div id="s-hover"></div>-->
                                </div>
                             <div class="control-btn">
                                <div class="button" id="prev">
@@ -52,46 +62,13 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 center-layout">
                     <div class="list-container">
-                        <ul>
-                            <li class="list-track">
-                                <i class="fas fa-play"></i>
-                                <span class="li-album-name">hey</span>
-                                <span class="leng-track">90:30</span>
-                            </li>
-                            <li class="list-track active">
-                                <i class="fas fa-pause"></i>
-                                <span class="li-album-name" >hey brother</span>
-                                <span class="leng-track">90:30</span>
-                            </li>
-                            <li class="list-track">
-                                <i class="fas fa-play"></i>
-                                <span class="li-album-name">hey</span>
-                                <span class="leng-track">90:30</span>
-                            </li>
-                            <li class="list-track">
-                                <i class="fas fa-play"></i>
-                                <span class="li-album-name">hey</span>
-                                <span class="leng-track">90:30</span>
-                            </li>
-                            <li class="list-track">
-                                <i class="fas fa-play"></i>
-                                <span class="li-album-name">hey</span>
-                                <span class="leng-track">90:30</span>
-                            </li>
-                            <li class="list-track">
-                                <i class="fas fa-play"></i>
-                                <span class="li-album-name">hey</span>
-                                <span class="leng-track">90:30</span>
-                            </li>
-                            <li class="list-track">
-                                <i class="fas fa-play"></i>
-                                <span class="li-album-name">hey</span>
-                                <span class="leng-track">90:30</span>
-                            </li>
+                        <ul id="song-list">
                         </ul>
                     </div>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/test.js"></script>
 </body>
 </html>

@@ -2,10 +2,6 @@ body{
     background: rgba(51, 117, 117, 0.7) !important;
     transform: scale(0.8);
 }
-.container-fluid {
-
-}
-
 
 .center-layout {
     height: 100vh;
@@ -14,20 +10,6 @@ body{
     place-items: center;
 }
 
-
-
-.album-img {
-    width: 9rem;
-    height: 9rem;
-    border-radius: 50%;
-    background: url(../img/album.jpg); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 10px solid #c7c7c7;
-    box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.39);
-    background-position: 50% 50%;
-
-}
 .control-container {
     position: absolute;
     top: 50%;
@@ -48,13 +30,42 @@ body{
 
 }
 
-.circle-album {
+#circle-album {
     position: absolute;
     left: -50px;
     top: 20px;
 }
+#circle-album.active
+{
+    z-index: 1;
+    -webkit-animation: rotateAlbumArt 3s linear 0s infinite forwards;
+            animation: rotateAlbumArt 3s linear 0s infinite forwards;
+}
 
+@-webkit-keyframes rotateAlbumArt
+{
+    0%{ -webkit-transform: rotateZ(0); transform: rotateZ(0); }
+    100%{ -webkit-transform: rotateZ(360deg); transform: rotateZ(360deg); }
+}
 
+@keyframes rotateAlbumArt
+{
+    0%{ -webkit-transform: rotateZ(0); transform: rotateZ(0); }
+    100%{ -webkit-transform: rotateZ(360deg); transform: rotateZ(360deg); }
+}
+
+.album-img {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    background: url(https://avatars2.githubusercontent.com/u/53111060?s=480&amp;v=4);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 10px solid #c7c7c7;
+    box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.39);
+    background-position: 50% 50%;
+
+}
 
 .album-name {
     text-align: left;
@@ -68,7 +79,7 @@ body{
 
 .seek-leght {
     margin: 0px 0px 0px 50px;
-    height: 6px;
+    height: 9px;
     border-radius: 3px;
     background-color: rgb(112,112,112,0.4);
 
@@ -78,7 +89,7 @@ body{
     margin: 0px 0px 0px 50px;
     font-size: 20px;
     float: left;
-    
+
 }
 
 .album-track {
@@ -98,10 +109,28 @@ body{
 }
 
 .seek-bar {
+/*    width: 10%;*/
     height: 100%;
     border-radius: 4px;
     background-color: #008080;
 }
+
+#ins-time{
+      visibility: hidden;
+      width: 50px;
+      background-color: #008080;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 2px 0;
+      position: absolute;
+      z-index: 1;
+}
+.seek-leght:hover #ins-time{
+      bottom: 50%;
+      visibility: visible;
+}
+
 .fas{
     color: dimgray !important;
     font-size: 30px;
@@ -133,7 +162,7 @@ ul {
     list-style-type: none;
 }
 ul{
-    overflow:hidden; 
+    overflow:hidden;
     overflow-y:scroll;
 }
 
@@ -158,7 +187,7 @@ ul{
 }
 
 .list-track .fas{
-    
+
     margin: 0px 40px 0px 0px;
     font-size: 20px;
 }
@@ -168,7 +197,7 @@ ul{
     margin-right: 20px;
 
 }
- li:hover, .active {
+ li:hover, li.active {
     background: rgba(0, 133, 133, 0.22);
     border-left: 2px solid #008080;
 }
@@ -180,9 +209,9 @@ ul{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #dcdcdc46; 
+  background: #dcdcdc46;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #00808033;
@@ -191,5 +220,5 @@ ul{
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #008080; 
+  background: #008080;
 }
