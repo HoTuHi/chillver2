@@ -2,7 +2,9 @@ body{
     background: rgba(51, 117, 117, 0.7) !important;
     transform: scale(0.8);
 }
-
+.h1, h1{
+    font-size: 1.6rem !important;
+}
 .center-layout {
     height: 100vh;
     width: 50vw;
@@ -62,7 +64,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     border: 10px solid #c7c7c7;
-    box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.39);
+    box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.39);
     background-position: 50% 50%;
 
 }
@@ -76,13 +78,19 @@ body{
     color: #707070;
 
 }
+.clearfix::after{
+    content: " ";
+    display: table;
+    clear: both;
+}
 
 .seek-leght {
-    margin: 0px 0px 0px 50px;
+    width: 350px;
     height: 9px;
     border-radius: 3px;
     background-color: rgb(112,112,112,0.4);
-
+    position: absolute;
+    right: 26px;
 }
 
 #current-time {
@@ -104,7 +112,8 @@ body{
 }
 
 .track-time {
-    margin: 10px 0px;
+/*    width: 390px;*/
+    right: 26px;
     color: #008080;
 }
 
@@ -128,20 +137,27 @@ body{
 }
 .seek-leght:hover #ins-time{
       bottom: 50%;
+      right: 105px;
       visibility: visible;
 }
 
 .fas{
     color: dimgray !important;
     font-size: 30px;
-    margin: 30px 30px;
+    padding: 10px 10px;
+    margin: 0px 20px;
 }
 .fas:hover{
     color:teal !important;
     transform: scale(1.1);
+    background-color: #00808033;
+    border-radius: 50%;
 }
 .control-btn {
+    margin-top: 20px;
     display: flex;
+    position: absolute;
+    left: 130px;
 }
 
 .list-container {
@@ -187,14 +203,16 @@ ul{
 }
 
 .list-track .fas{
-
+    padding: 0px;
     margin: 0px 40px 0px 0px;
     font-size: 20px;
 }
 .leng-track{
     float: right;
     font-family: "Cascadia Code";
-    margin-right: 20px;
+    margin-right: 0px;
+    margin-top: 10px;
+    font-size: 14px;
 
 }
  li:hover, li.active {
@@ -214,8 +232,9 @@ ul{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
+  height: 70px;
   background: #00808033;
-  border-radius: 5px;
+  border-radius: 5px ;
 }
 
 /* Handle on hover */
