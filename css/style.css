@@ -1,12 +1,14 @@
 body{
     background: rgba(51, 117, 117, 0.7) !important;
-    transform: scale(0.8);
+    transform: scale(0.75);
+    display: grid;
+    place-items: center;
 }
 .h1, h1{
     font-size: 1.6rem !important;
 }
 .center-layout {
-    height: 100vh;
+    height: 50vh;
     width: 50vw;
     display: grid;
     place-items: center;
@@ -195,7 +197,7 @@ ul{
 /*    width: 100px;*/
     font-family: "Cascadia Code";
     font-weight: normal;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 0.08em;
     text-align: left;
     color: #707070;
@@ -240,4 +242,9 @@ ul{
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #008080;
+}
+
+.container-fluid {
+        =display: grid;
+    place-items: center;
 }

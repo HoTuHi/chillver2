@@ -211,12 +211,13 @@ var tName = $("#player-track");
             durSeconds = '0'+durSeconds;
 
         seekBar.width(playProgress+'%');
-        if(playProgress == 100) 
+        if(playProgress == 100)
         {
             updateList(1);
             if( currentSong <songs.length)
-                currentSong+=1;
-            tName.text(songs[currentSong].name.substr(0,20));
+                currentSong=Number(currentSong)+1;
+            songName = songs[currentSong].name;
+            tName.text(songName.substr(0,20));
             audio.src = songs[currentSong].url;
             rotaleImg.addClass('active');
             i.attr('class','fas fa-pause');
@@ -233,7 +234,7 @@ var tName = $("#player-track");
         // alert("#q");
         var x= $('li.list-track');
         if (tFlag==0){
-            
+
             x.eq(currentSong).addClass('active');
             iaa = x.eq(currentSong).find('i');
             iaa.attr('class','fas fa-pause');
@@ -247,7 +248,8 @@ var tName = $("#player-track");
     function selectTrack(index){
         updateList(1);
         currentSong = index;
-        tName.text(songs[currentSong].name.substr(0,25));
+        songName = songs[currentSong].name;
+        tName.text(songName.substr(0,25));
         audio.src = songs[currentSong].url;
         rotaleImg.addClass('active');
         i.attr('class','fas fa-pause');
@@ -255,14 +257,14 @@ var tName = $("#player-track");
         audio.play();
         $(audio).on("timeupdate", updateCurTime);
     }
-    
+
 // khoi tao audio
     function initAudio(){
         //??
         audio.src = songs[currentSong].url;
         updateList(1);
-//        selectTrack(3);
-        tName.text(songs[currentSong].name.substr(0,25));
+        songName = songs[currentSong].name;
+        tName.text(songName.substr(0,20));
         //done
         playPauseButton.on('click',playPauseClick);
         seekArea.mousemove(function(e){ updateHoverTime(e);});
@@ -271,16 +273,17 @@ var tName = $("#player-track");
         $('li').click(function() {
            selectTrack(this.title);
         });
-        
-        
+
+
 //
 
         //done
         nextButton.on('click',function(){
             updateList(1);
             if( currentSong <songs.length)
-                currentSong+=1;
-            tName.text(songs[currentSong].name.substr(0,20));
+                currentSong=Number(currentSong)+1;
+            songName = songs[currentSong].name;
+            tName.text(songName.substr(0,20));
             audio.src = songs[currentSong].url;
             rotaleImg.addClass('active');
             i.attr('class','fas fa-pause');
@@ -288,22 +291,23 @@ var tName = $("#player-track");
             audio.play();
             $(audio).on("timeupdate", updateCurTime);
         });
-        
+
         //done
         prevButton.on('click',function(){
             updateList(1);
             if( currentSong >0)
                 currentSong-=1;
             audio.src = songs[currentSong].url;
-            tName.text(songs[currentSong].name.substr(0,20));
+            songName = songs[currentSong].name;
+            tName.text(songName.substr(0,20));
             rotaleImg.addClass('active');
             i.attr('class','fas fa-pause');
             updateList(0);
             audio.play();
             $(audio).on("timeupdate", updateCurTime);
         });
-        
-        
+
+
 
 
         $(audio).on("timeupdate", updateCurTime);
