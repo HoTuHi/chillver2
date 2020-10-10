@@ -1,8 +1,9 @@
 $(function(){
     var audio =new Audio();
     var currentSong =0;
+    var songs;
 //songs
-    var songs =  [
+    const playSongs =  [
         {
             artist:"Naomi Scott",
             name: "Speechless (Full) (From Aladdin/Soundtrack Version)",
@@ -120,6 +121,16 @@ $(function(){
             name: "Without You",
             url: "Musics/withoutyou.mp3"}
     ]
+    function shuffle(a) {
+		var j, x, i;
+		for (i = a.length - 1; i > 0; i--) {
+			j = Math.floor(Math.random() * (i + 1));
+			x = a[i];
+			a[i] = a[j];
+			a[j] = x;
+		}
+		return a;
+	}
     var rotaleImg = $("#circle-album");
     function showList(){
         var txt = "";
@@ -215,7 +226,8 @@ var tName = $("#player-track");
         {
             updateList(1);
             if( currentSong <songs.length)
-                currentSong=Number(currentSong)+1;
+                if(loopFlag!=1)
+                    currentSong=Number(currentSong)+1;
             songName = songs[currentSong].name;
             tName.text(songName.substr(0,20));
             audio.src = songs[currentSong].url;
@@ -247,9 +259,16 @@ var tName = $("#player-track");
     }
     function selectTrack(index){
         updateList(1);
-        currentSong = index;
+        
+        if(randomFlag==1){
+            index = Math.floor(Math.random()*songs.length);
+            currentSong = index;
+        }
+        else
+            currentSong += index;
+    
         songName = songs[currentSong].name;
-        tName.text(songName.substr(0,25));
+        tName.text(songName.substr(0,20));
         audio.src = songs[currentSong].url;
         rotaleImg.addClass('active');
         i.attr('class','fas fa-pause');
@@ -257,66 +276,63 @@ var tName = $("#player-track");
         audio.play();
         $(audio).on("timeupdate", updateCurTime);
     }
-
+    var randomButton =$("#shuffer"),loopButton = $("#loop");
+    var randomFlag =0, loopFlag =0;
+    var Button;
+    function clickRandomButton(){
+        var iCh = randomButton.find('i');
+        if ( randomFlag == 0){
+             iCh.addClass('active');
+             randomFlag =1;
+            }
+        else{
+            iCh.removeClass('active');
+            randomFlag =0;
+        }
+    }
+    function clickRepeatButton(){
+        var iCh = loopButton.find('i');
+        if ( loopFlag == 0){
+             iCh.addClass('active');
+             loopFlag =1;
+            }
+        else{
+            iCh.removeClass('active');
+             loopFlag =0;
+            showList();
+        }
+    }
 // khoi tao audio
     function initAudio(){
-        //??
+        songs = playSongs;
         audio.src = songs[currentSong].url;
-        updateList(1);
+        updateList(0);
         songName = songs[currentSong].name;
         tName.text(songName.substr(0,20));
         //done
         playPauseButton.on('click',playPauseClick);
+        if(loopFlag==1){
+            currentSong-=1;
+        }
         seekArea.mousemove(function(e){ updateHoverTime(e);});
         seekArea.click(playFromClickseek);
         showList();
         $('li').click(function() {
            selectTrack(this.title);
         });
-
-
-//
-
         //done
         nextButton.on('click',function(){
-            updateList(1);
-            if( currentSong <songs.length)
-                currentSong=Number(currentSong)+1;
-            songName = songs[currentSong].name;
-            tName.text(songName.substr(0,20));
-            audio.src = songs[currentSong].url;
-            rotaleImg.addClass('active');
-            i.attr('class','fas fa-pause');
-            updateList(0);
-            audio.play();
-            $(audio).on("timeupdate", updateCurTime);
+            selectTrack(1);
         });
-
         //done
         prevButton.on('click',function(){
-            updateList(1);
-            if( currentSong >0)
-                currentSong-=1;
-            audio.src = songs[currentSong].url;
-            songName = songs[currentSong].name;
-            tName.text(songName.substr(0,20));
-            rotaleImg.addClass('active');
-            i.attr('class','fas fa-pause');
-            updateList(0);
-            audio.play();
-            $(audio).on("timeupdate", updateCurTime);
+            selectTrack(-1);
         });
 
-
-
-
+        randomButton.on('click',clickRandomButton);
+        loopButton.on('click',clickRepeatButton);
         $(audio).on("timeupdate", updateCurTime);
     }
     initAudio();
 })
 
-
-
-//$('li').click(function() {
-//   alert(this.id);
-//});

@@ -1,3 +1,4 @@
+
 body{
     background: rgba(51, 117, 117, 0.7) !important;
     transform: scale(0.75);
@@ -155,6 +156,14 @@ body{
     background-color: #00808033;
     border-radius: 50%;
 }
+.fa{
+    color: dimgrey;
+    font-size: 20px !important;
+    padding: 5px 15px;
+}
+.fa:hover,.fa.active{
+    color:teal;
+}
 .control-btn {
     margin-top: 20px;
     display: flex;
@@ -245,6 +254,31 @@ ul{
 }
 
 .container-fluid {
-        =display: grid;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
     place-items: center;
+}
+
+
+.button-sm {
+    font-size: 10px;
+    color: dimgray;
+    
+}
+
+.small-btn {
+    display: inline-block;
+}
+
+.container-fluid {
+    
+}
+
+.row {
+    
+}
+
+.chua {
+    width: 100%;
 }
