@@ -318,7 +318,17 @@ var tName = $("#player-track");
         seekArea.click(playFromClickseek);
         showList();
         $('li').click(function() {
-           selectTrack(this.title);
+            updateList(1);
+            currentSong = this.title;
+            songName = songs[currentSong].name;
+            tName.text(songName.substr(0,20));
+            audio.src = songs[currentSong].url;
+            rotaleImg.addClass('active');
+            i.attr('class','fas fa-pause');
+            updateList(0);
+            audio.play();
+            $(audio).on("timeupdate", updateCurTime);
+//           selectTrack(this.title);
         });
         //done
         nextButton.on('click',function(){
