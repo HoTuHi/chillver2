@@ -176,7 +176,7 @@ $(function(){
     function updateHoverTime(event){
         seekbarPos = seekArea.offset();
         seekTime = event.clientX-seekbarPos.left;
-        seekLoc = audio.duration * (seekTime /280);
+        seekLoc = audio.duration * (seekTime /262);
         cM = seekLoc / 60;
 //        console.log(event.clientX);
 		ctMinutes = Math.floor(cM);
@@ -265,7 +265,7 @@ var tName = $("#player-track");
             currentSong = index;
         }
         else
-            currentSong += index;
+            currentSong =Number(currentSong) + index;
     
         songName = songs[currentSong].name;
         tName.text(songName.substr(0,20));
